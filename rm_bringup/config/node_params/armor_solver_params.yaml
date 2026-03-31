@@ -1,0 +1,51 @@
+/**:
+  ros__parameters:
+    debug: true
+    target_frame: odom_vision
+    max_armor_distance: 10.0
+
+    ekf:
+      # 预测
+      sigma2_q_x: 20.0
+      sigma2_q_y: 20.0
+      sigma2_q_z: 5.0
+      sigma2_q_yaw: 100.0
+      sigma2_q_r: 800.0
+
+      # 观测
+      r_x: 0.013200239
+      r_y: 0.01158230387
+      r_z: 0.050555555555
+      r_yaw: 0.01502530242
+
+    tracker:
+      max_match_distance: 1.0
+      max_match_yaw_diff: 0.4
+      tracking_thres: 3
+      lost_time_thres: 1.0
+
+    solver:
+      prediction_delay: 0.076
+      controller_delay: 0.02
+      max_tracking_v_yaw: 6.0
+      side_angle: 18.0
+      min_switching_v_yaw: 1.0
+
+      coming_angle: 55.0
+      leaving_angle: 20.0
+
+      
+      fire_margin: 0.8               # fraction of projected armor width
+      min_fire_tolerance: 1.5        # degrees
+      max_fire_tolerance: 4.0        # degrees
+
+      # 瞄准偏移量（单位：度）— 用于修正机械零位、管子歪等系统误差
+      # 与 launch 中的 xyz rpy（相机物理安装角度）解耦，不影响 yaw 优化
+      yaw_offset: 0.0
+      pitch_offset: 0.0
+
+      bullet_speed: 23.0
+      compensator_type: "ideal"
+      gravity: 9.8035
+      resistance: 0.092
+      iteration_times: 20
